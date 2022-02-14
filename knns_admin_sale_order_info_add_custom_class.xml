@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<modification
+		xmlns="https://github.com/vqmod/vqmod"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="https://github.com/vqmod/vqmod https://raw.githubusercontent.com/vqmod/vqmod/master/vqmod.xsd"
+		>
+			<id><![CDATA[[VQMOD] Add custom class in Admin > Sale > Order Info]]></id>
+			<version>0.1.0</version>
+			<vqmver>2.6.6</vqmver>
+			<author>kanenas.net (aka Nikolas Branis) - nbran@kanenas.net</author>
+			<file path="admin/view/template/sale/" name="order_info.tpl" error="log">
+				<operation error="skip">
+					<search position="replace" offset="1"><![CDATA[<td><button data-toggle="tooltip" title="<?php echo $text_payment_method; ?>" class="btn btn-info btn-xs"><i class="fa fa-credit-card fa-fw"></i></button></td>]]></search>
+					<add><![CDATA[
+                <?php // kanenas: knns_admin_sale_order_info_add_custom_class.xml (start) << ?>
+                <td><button data-toggle="tooltip" title="<?php echo $text_payment_method; ?>" class="btn btn-info btn-xs"><i class="fa fa-credit-card fa-fw"></i></button></td>
+                <td class="custom-admin"><?php echo $payment_method; ?></td>
+                <?php // kanenas: knns_admin_sale_order_info_add_custom_class.xml (end) << ?>
+					]]>
+					</add>
+				</operation>
+				<operation error="skip">
+					<search position="replace" offset="1"><![CDATA[<td><button data-toggle="tooltip" title="<?php echo $text_shipping_method; ?>" class="btn btn-info btn-xs"><i class="fa fa-truck fa-fw"></i></button></td>]]></search>
+					<add><![CDATA[
+                <?php // kanenas: knns_admin_sale_order_info_add_custom_class.xml (start) << ?>
+                <td><button data-toggle="tooltip" title="<?php echo $text_shipping_method; ?>" class="btn btn-info btn-xs"><i class="fa fa-truck fa-fw"></i></button></td>
+                <td class="custom-admin"><?php echo $shipping_method; ?></td>
+                <?php // kanenas: knns_admin_sale_order_info_add_custom_class.xml (end) << ?>
+					]]>
+					</add>
+				</operation>
+				<operation error="skip">
+					<search position="replace" offset="1"><![CDATA[<td><button data-toggle="tooltip" title="<?php echo $text_customer_group; ?>" class="btn btn-info btn-xs"><i class="fa fa-group fa-fw"></i></button></td>]]></search>
+					<add><![CDATA[
+              <?php // kanenas: knns_admin_sale_order_info_add_custom_class.xml (start) << ?>
+              <td><button data-toggle="tooltip" title="<?php echo $text_customer_group; ?>" class="btn btn-info btn-xs"><i class="fa fa-group fa-fw"></i></button></td>
+              <td class="custom-admin"><?php echo $customer_group; ?></td>
+              <?php // kanenas: knns_admin_sale_order_info_add_custom_class.xml (end) << ?>
+					]]>
+					</add>
+				</operation>
+			</file>
+	</modification>
